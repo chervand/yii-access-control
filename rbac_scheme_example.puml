@@ -1,0 +1,39 @@
+@startuml
+
+title RBAC Scheme Example
+
+:admin: --> :moder:
+:moder: --> :support:
+:user:
+:guest:
+
+(do_administrative_things) <<task>>
+(module/controller/action1) <<operation>>
+(module/controller/action2) <<operation>>
+
+(do_support_things) <<task>>
+(module/controller/action3) <<operation>>
+(module/controller/action4) <<operation>>
+
+(do_regular_things) <<task>>
+(module/controller/action5) <<operation>>
+
+:user: --> (do_regular_things)
+:support: --> (do_regular_things)
+:support: --> (do_support_things)
+:admin: --> (do_administrative_things)
+
+(do_administrative_things) -left-> (module/controller/action1)
+(do_administrative_things) --> (module/controller/action2)
+(do_support_things) -right-> (module/controller/action3)
+(do_support_things) --> (module/controller/action4)
+(do_regular_things) --> (module/controller/action5)
+
+note right of guest : Has no access to any action
+note left of admin : Has access to all actions
+note top of user : Has access to action 5
+note "Has access to\nactions 3..5." as N2
+moder .. N2
+N2 .. support
+
+@enduml

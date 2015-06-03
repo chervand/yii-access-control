@@ -68,3 +68,5 @@ class Controller extends CController
 ```
 
 ## Creating Rules
+
+![RBAC Scheme Example](rbac_scheme_example.png)
