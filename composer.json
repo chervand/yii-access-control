@@ -1,0 +1,7 @@
+{
+  "license": "MIT",
+  "name": "chervand/yii-access-control",
+  "require": {
+    "yiisoft/yii": "1.1.*"
+  }
+}
