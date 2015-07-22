@@ -17,8 +17,8 @@ class m000000_000000_access_control extends CDbMigration
 			'parent' => 'varchar(64) not null',
 			'child' => 'varchar(64) not null',
 			'primary key (`parent`,`child`)',
-			'foreign key (`parent`) references `qi_auth_item` (`name`) on delete cascade on update cascade',
-			'foreign key (`child`) references `qi_auth_item` (`name`) on delete cascade on update cascade',
+			'foreign key (`parent`) references `auth_item` (`name`) on delete cascade on update cascade',
+			'foreign key (`child`) references `auth_item` (`name`) on delete cascade on update cascade',
 		]);
 		$this->createTable('auth_assignment', [
 			'itemname' => 'varchar(64) not null',
@@ -26,7 +26,7 @@ class m000000_000000_access_control extends CDbMigration
 			'bizrule' => 'text',
 			'data' => 'text',
 			'primary key (`itemname`,`userid`)',
-			'foreign key (`itemname`) references `qi_auth_item` (`name`) on delete cascade on update cascade',
+			'foreign key (`itemname`) references `auth_item` (`name`) on delete cascade on update cascade',
 		]);
 
 		// default roles
